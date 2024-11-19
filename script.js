@@ -122,13 +122,28 @@ function startGame() {
     }
     requestAnimationFrame(spawnPipe);
 }
-
+// Added function to send score to server
+function sendScore(playerName, score) {
+    fetch('save_score.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `player_name=${playerName}&score=${score}`
+    }).then(response => response.text())
+      .then(data => console.log(data));
+}
 function endGame(reload = false) {
     gameState = 'End';
     messageElement.innerHTML = 'Game Over'.fontcolor('red') + '<br>Press Enter To Restart';
     messageElement.classList.add('messageStyle');
     birdImage.style.display = 'none';
     deathSound.play();
+
+    // Send score to server
+    let playerName = prompt("Enter your name:");
+    let score = scoreValue.innerHTML;
+    sendScore(playerName, score); // Call the new function to send score
 
     if (reload) {
         messageElement.style.left = '28vw';
