@@ -16,11 +16,11 @@
 
 .bird
 {
-  height: 100px;
-  width: 130px;
+  height: 70px;
+  width: 70px;
   position: fixed;
-  top: 40vh;
-  left: 30vw;
+  top: 30vh;
+  left: 20vw;
   z-index: 100;
 }
 
