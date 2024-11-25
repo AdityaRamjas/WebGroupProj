@@ -130,7 +130,7 @@ function sendScore(playerName, score) {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `player_name=${playerName}&score=${score}`
+        body: player_name=${playerName}&score=${score}
     }).then(response => response.text())
       .then(data => console.log(data));
 }
