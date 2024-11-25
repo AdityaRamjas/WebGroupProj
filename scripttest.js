@@ -180,7 +180,7 @@ function endGame(reload = false) {
     }
 
     // Display the "Game Over" screen
-    messageElement.innerHTML = 'Game Over<br>Press Enter To Restart'.fontcolor('red');
+    messageElement.innerHTML = '<h1>Game Over!<br><div>Press Enter to Restart</h1>'.fontcolor('red');
     messageElement.classList.add('messageStyle');
 
    
@@ -189,7 +189,7 @@ function endGame(reload = false) {
     if (reload) {
         setTimeout(() => {
             window.location.reload();
-        }, 2000); // Delay reload to give time for the UI to show
+        }, 1000); // Delay reload to give time for the UI to show
     }
 }
 
