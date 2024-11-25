@@ -4,6 +4,7 @@ let birdElement = document.querySelector('.bird');
 let birdImage = document.getElementById('bird-1');
 let pointSound = new Audio('sounds effect/point.mp3');
 let deathSound = new Audio('sounds effect/die.mp3');
+let called = false;
 
 // Obtain bird element properties
 let birdBounds = birdElement.getBoundingClientRect();
@@ -139,11 +140,18 @@ function endGame(reload = false) {
     messageElement.classList.add('messageStyle');
     birdImage.style.display = 'none';
     deathSound.play();
-
+    // Send score to server
+	if (called === false) {
+		let playerName = prompt("Enter your name:");
+		let score = scoreValue.innerHTML;
+		sendScore(playerName, score); // Call the new function to send score
+		called = true;
+	}
     
     if (reload) {
         messageElement.style.left = '28vw';
         window.location.reload();
         messageElement.classList.remove('messageStyle');
+		called = false;
     }
 }
