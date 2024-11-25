@@ -140,11 +140,7 @@ function endGame(reload = false) {
     birdImage.style.display = 'none';
     deathSound.play();
 
-    // Send score to server
-    let playerName = prompt("Enter your name:");
-    let score = scoreValue.innerHTML;
-    sendScore(playerName, score); // Call the new function to send score
-
+    
     if (reload) {
         messageElement.style.left = '28vw';
         window.location.reload();
