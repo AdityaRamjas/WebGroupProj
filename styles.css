@@ -1,3 +1,4 @@
+/* Existing styles */
 *
 {
   margin: 0;
@@ -75,24 +76,26 @@
   font-weight: bold;
 }
 
-@media only screen and (max-width: 1080px)
-{
-  .message
-  {
-    font-size: 50px;
-    top: 50%;
-    white-space: nowrap;
-  }
-  .score
-  {
-    font-size: 8vh;
-  }
-  .bird
-  {
-    width: 120px;
-    height: 90px;
-  }
-  .pipe_sprite
-  {
-    width: 14vw;
-  }
+/* Added styles for the color picker */
+.color-picker-container { /* Highlighted */
+    position: absolute; /* Highlighted */
+    top: 10px; /* Highlighted */
+    left: 10px; /* Highlighted */
+    z-index: 200; /* Highlighted */
+    display: flex; /* Highlighted */
+    align-items: center; /* Highlighted */
+    gap: 10px; /* Highlighted */
+    background: rgba(255, 255, 255, 0.8); /* Highlighted */
+    padding: 5px 10px; /* Highlighted */
+    border-radius: 5px; /* Highlighted */
+    font-size: 14px; /* Highlighted */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Highlighted */
+}
+
+#bird-color { /* Highlighted */
+    cursor: pointer; /* Highlighted */
+    border: none; /* Highlighted */
+    width: 30px; /* Highlighted */
+    height: 30px; /* Highlighted */
+    padding: 0; /* Highlighted */
+}
