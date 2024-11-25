@@ -6,19 +6,16 @@ let pointSound = new Audio('sounds effect/point.mp3');
 let deathSound = new Audio('sounds effect/die.mp3');
 let called = false;
 
-// Obtain bird element properties
-let birdBounds = birdElement.getBoundingClientRect();
-let backgroundBounds = document.querySelector('.background').getBoundingClientRect();
+// Added selector for color picker
+const colorPicker = document.getElementById('bird-color'); /* Highlighted */
 
-let scoreValue = document.querySelector('.score_val');
-let messageElement = document.querySelector('.message');
-let scoreTitle = document.querySelector('.score_title');
+// Event listener for color picker to change bird color dynamically
+colorPicker.addEventListener('input', (e) => { /* Highlighted */
+    birdElement.style.backgroundColor = e.target.value; /* Highlighted */
+    birdImage.style.display = 'none'; /* Highlighted */
+    birdElement.style.borderRadius = '50%'; /* Highlighted */
+}); /* Highlighted */
 
-let gameState = 'Start';
-birdImage.style.display = 'none';
-messageElement.classList.add('messageStyle');
-
-// Event listener to start the game when 'Enter' is pressed
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && gameState !== 'Play') {
         document.querySelectorAll('.pipe_sprite').forEach((pipe) => pipe.remove());
@@ -123,35 +120,17 @@ function startGame() {
     }
     requestAnimationFrame(spawnPipe);
 }
-// Added function to send score to server
-function sendScore(playerName, score) {
-    fetch('save_score.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `player_name=${playerName}&score=${score}`
-    }).then(response => response.text())
-      .then(data => console.log(data));
-}
+
 function endGame(reload = false) {
     gameState = 'End';
     messageElement.innerHTML = 'Game Over'.fontcolor('red') + '<br>Press Enter To Restart';
     messageElement.classList.add('messageStyle');
     birdImage.style.display = 'none';
     deathSound.play();
-    // Send score to server
-	if (called === false) {
-		let playerName = prompt("Enter your name:");
-		let score = scoreValue.innerHTML;
-		sendScore(playerName, score); // Call the new function to send score
-		called = true;
-	}
-    
+
     if (reload) {
         messageElement.style.left = '28vw';
         window.location.reload();
         messageElement.classList.remove('messageStyle');
-		called = false;
     }
 }
