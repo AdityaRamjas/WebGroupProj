@@ -2,8 +2,8 @@ let moveSpeed = 3;
 let gravity = 0.5;
 let birdElement = document.querySelector('.bird');
 let birdImage = document.getElementById('bird-1');
-let pointSound = new Audio('sounds effect/point.mp3');
-let deathSound = new Audio('sounds effect/die.mp3');
+let pointSound = new Audio('ding.mp3');
+let deathSound = new Audio('death.mp3');
 let called = false;
 let isHighScore = false;
 // Obtain bird element properties

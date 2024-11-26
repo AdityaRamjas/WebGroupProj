@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/favicon.ico"/>
     <title>Flappy Bird Game</title>
-    <link rel="stylesheet" href="stylestest.css">
-    <script src="scripttest.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
     
     <img src="images/Bird.png" alt="bird-img" class="bird" id="bird-1">
     <div class="message">
-        <h1>Welcome To Flappy Bird! <h1></br>Enter To Start Game <p><span style="color: red;">&uarr;</span> ArrowUp or Space to Fly<p>
+        <h1>Welcome To Flappy Bird! <h1></br>Enter To Start Game <p><span style="color: red;"></span> Up Arrow or Space to Fly<p>
 
     </div>
     <div class="score">
